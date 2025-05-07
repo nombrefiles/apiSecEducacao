@@ -1,135 +1,21 @@
 class Aluno {
 
-    protected nome: string;
-    protected idade: number;
-    protected escola: string;
-    protected altura: number;
-    protected peso: number;
-    protected envergadura: number;
-    protected perimetroDaCintura: number;
+    private _nome: string;
+    private _idade: number;
+    private _escola: string;
+    private _altura: number;
+    private _peso: number;
+    private _envergadura: number;
+    private _perimetroDaCintura: number;
     
     // TESTES
-    protected testeDeFlexibilidade: number;
-    protected testeAbdominal: number;
-    protected testeDeVelocidade: number;
-    protected testeDeAgilidade: number;
-    protected testeMedicineBall: number;
-    protected teste6Minutos: number;
-    protected testeDeSalto: number;
-
-
-
-    public getNome(): string {
-        return this.nome;
-    }
-
-    public getIdade(): number {
-        return this.idade;
-    }
-
-    public getEscola(): string {
-        return this.escola;
-    }
-
-    public setNome(nome: string): void {
-        this.nome = nome;
-    }
-
-    public setIdade(idade: number): void {
-        this.idade = idade;
-    }
-
-    public setEscola(escola: string): void {
-        this.escola = escola;
-    }
-
-    public getAltura(): number {
-        return this.altura;
-    }
-    
-    public getPeso(): number {
-        return this.peso;
-    }
-
-    public getEnvergadura(): number {
-        return this.envergadura;
-    }
-
-    public getPerimetroDaCintura(): number {
-        return this.perimetroDaCintura;
-    }
-
-    public setAltura(altura: number): void {
-        this.altura = altura;
-    }
-
-    public setPeso(peso: number): void {
-        this.peso = peso;
-    }
-
-    public setEnvergadura(envergadura: number): void {
-        this.envergadura = envergadura;
-    }
-
-    public setPerimetroDaCintura(perimetroDaCintura: number): void {
-        this.perimetroDaCintura = perimetroDaCintura;
-    }
-
-    public getTesteDeFlexibilidade(): number {
-        return this.testeDeFlexibilidade;
-    }
-
-    public getTesteAbdominal(): number {
-        return this.testeAbdominal;
-    }
-
-    public getTesteDeVelocidade(): number {
-        return this.testeDeVelocidade;
-    }
-
-    public getTesteDeAgilidade(): number {
-        return this.testeDeAgilidade;
-    }
-
-    public getTesteMedicineBall(): number {
-        return this.testeMedicineBall;
-    }
-
-    public getTeste6Minutos(): number {
-        return this.teste6Minutos;
-    }
-
-    public getTesteDeSalto(): number {
-        return this.testeDeSalto;
-    }
-
-    public setTesteDeFlexibilidade(testeDeFlexibilidade: number): void {
-        this.testeDeFlexibilidade = testeDeFlexibilidade;
-    }
-
-    public setTesteAbdominal(testeAbdominal: number): void {
-        this.testeAbdominal = testeAbdominal;
-    }
-
-    public setTesteDeVelocidade(testeDeVelocidade: number): void {
-        this.testeDeVelocidade = testeDeVelocidade;
-    }
-
-    public setTesteDeAgilidade(testeDeAgilidade: number): void {
-        this.testeDeAgilidade = testeDeAgilidade;
-    }
-
-    public setTesteMedicineBall(testeMedicineBall: number): void {
-        this.testeMedicineBall = testeMedicineBall;
-    }
-
-    public setTeste6Minutos(teste6Minutos: number): void {
-        this.teste6Minutos = teste6Minutos;
-    }
-
-    public setTesteDeSalto(testeDeSalto: number): void {
-        this.testeDeSalto = testeDeSalto;
-    }
+    private _testeDeFlexibilidade: number;
+    private _testeAbdominal: number;
+    private _testeDeVelocidade: number;
+    private _testeDeAgilidade: number;
+    private _testeMedicineBall: number;
+    private _teste6Minutos: number;
+    private _testeDeSalto: number;
 
     public getIMC(altura: number, peso: number): number {
         return peso / (altura * altura);
@@ -139,38 +25,134 @@ class Aluno {
         return (perimetroDaCintura / altura);
     }
 
-    constructor(
-        nome: string,
-        idade: number,
-        escola: string,
-        altura: number,
-        peso: number,
-        envergadura: number,
-        perimetroDaCintura: number,
-        testeDeFlexibilidade: number,
-        testeAbdominal: number,
-        testeDeVelocidade: number,
-        testeDeAgilidade: number,
-        testeMedicineBall: number,
-        teste6Minutos: number,
-        testeDeSalto: number,
-        // imc: number = 0,
-    ) {
-        this.nome = nome;
-        this.idade = idade;
-        this.escola = escola;
-        this.altura = altura;
-        this.peso = peso;
-        this.envergadura = envergadura;
-        this.perimetroDaCintura = perimetroDaCintura;
-        this.testeDeFlexibilidade = testeDeFlexibilidade;
-        this.testeAbdominal = testeAbdominal;
-        this.testeDeVelocidade = testeDeVelocidade;
-        this.testeDeAgilidade = testeDeAgilidade;
-        this.testeMedicineBall = testeMedicineBall;
-        this.teste6Minutos = teste6Minutos;
-        this.testeDeSalto = testeDeSalto;
-        // this.imc = this.getIMC(altura, peso);
+
+    constructor(nome: string, idade: number, escola: string, altura: number, peso: number, envergadura: number, perimetroDaCintura: number, testeDeFlexibilidade: number, testeAbdominal: number, testeDeVelocidade: number, testeDeAgilidade: number, testeMedicineBall: number, teste6Minutos: number, testeDeSalto: number) {
+        this._nome = nome;
+        this._idade = idade;
+        this._escola = escola;
+        this._altura = altura;
+        this._peso = peso;
+        this._envergadura = envergadura;
+        this._perimetroDaCintura = perimetroDaCintura;
+        this._testeDeFlexibilidade = testeDeFlexibilidade;
+        this._testeAbdominal = testeAbdominal;
+        this._testeDeVelocidade = testeDeVelocidade;
+        this._testeDeAgilidade = testeDeAgilidade;
+        this._testeMedicineBall = testeMedicineBall;
+        this._teste6Minutos = teste6Minutos;
+        this._testeDeSalto = testeDeSalto;
     }
-    
+
+
+    get nome(): string {
+        return this._nome;
+    }
+
+    set nome(value: string) {
+        this._nome = value;
+    }
+
+    get idade(): number {
+        return this._idade;
+    }
+
+    set idade(value: number) {
+        this._idade = value;
+    }
+
+    get escola(): string {
+        return this._escola;
+    }
+
+    set escola(value: string) {
+        this._escola = value;
+    }
+
+    get altura(): number {
+        return this._altura;
+    }
+
+    set altura(value: number) {
+        this._altura = value;
+    }
+
+    get peso(): number {
+        return this._peso;
+    }
+
+    set peso(value: number) {
+        this._peso = value;
+    }
+
+    get envergadura(): number {
+        return this._envergadura;
+    }
+
+    set envergadura(value: number) {
+        this._envergadura = value;
+    }
+
+    get perimetroDaCintura(): number {
+        return this._perimetroDaCintura;
+    }
+
+    set perimetroDaCintura(value: number) {
+        this._perimetroDaCintura = value;
+    }
+
+    get testeDeFlexibilidade(): number {
+        return this._testeDeFlexibilidade;
+    }
+
+    set testeDeFlexibilidade(value: number) {
+        this._testeDeFlexibilidade = value;
+    }
+
+    get testeAbdominal(): number {
+        return this._testeAbdominal;
+    }
+
+    set testeAbdominal(value: number) {
+        this._testeAbdominal = value;
+    }
+
+    get testeDeVelocidade(): number {
+        return this._testeDeVelocidade;
+    }
+
+    set testeDeVelocidade(value: number) {
+        this._testeDeVelocidade = value;
+    }
+
+    get testeDeAgilidade(): number {
+        return this._testeDeAgilidade;
+    }
+
+    set testeDeAgilidade(value: number) {
+        this._testeDeAgilidade = value;
+    }
+
+    get testeMedicineBall(): number {
+        return this._testeMedicineBall;
+    }
+
+    set testeMedicineBall(value: number) {
+        this._testeMedicineBall = value;
+    }
+
+    get teste6Minutos(): number {
+        return this._teste6Minutos;
+    }
+
+    set teste6Minutos(value: number) {
+        this._teste6Minutos = value;
+    }
+
+    get testeDeSalto(): number {
+        return this._testeDeSalto;
+    }
+
+    set testeDeSalto(value: number) {
+        this._testeDeSalto = value;
+    }
 }
