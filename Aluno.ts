@@ -1,7 +1,40 @@
+declare function require(path:string): any;
+
+type profile = {
+    name: string;
+    age: number;
+    gender: string;
+    school: string;
+    height: number;
+    weight: number;
+    spread: number;
+    waist: number;
+    flexibility: number;
+    abdominal: number;
+    speed: number;
+    agility: number;
+    strength: number;
+    sixMin: number;
+    jump: number;
+    imc: number;
+    rce: number;
+    results: {
+        imc: boolean,
+        rce: boolean,
+        flexibility: boolean;
+        abdominal: boolean;
+        speed: boolean;
+        agility: boolean;
+        strength: boolean;
+        sixMin: boolean;
+    }
+};
+
 class Aluno {
 
     private _nome: string;
     private _idade: number;
+    private _genero: string;
     private _escola: string;
     private _altura: number;
     private _peso: number;
@@ -17,16 +50,16 @@ class Aluno {
     private _teste6Minutos: number;
     private _testeDeSalto: number;
 
-    public getIMC(altura: number, peso: number): number {
-        return peso / (altura * altura);
+    get IMC(): number {
+        return this._peso / (this._altura * this._altura);
     }
 
-    public getRCE(perimetroDaCintura: number, altura: number): number {
-        return (perimetroDaCintura / altura);
+    get RCE(): number {
+        return (this._perimetroDaCintura / this._altura);
     }
 
 
-    constructor(nome: string, idade: number, escola: string, altura: number, peso: number, envergadura: number, perimetroDaCintura: number, testeDeFlexibilidade: number, testeAbdominal: number, testeDeVelocidade: number, testeDeAgilidade: number, testeMedicineBall: number, teste6Minutos: number, testeDeSalto: number) {
+    constructor(nome: string, idade: number, genero: string, escola: string, altura: number, peso: number, envergadura: number, perimetroDaCintura: number, testeDeFlexibilidade: number, testeAbdominal: number, testeDeVelocidade: number, testeDeAgilidade: number, testeMedicineBall: number, teste6Minutos: number, testeDeSalto: number) {
         this._nome = nome;
         this._idade = idade;
         this._escola = escola;
@@ -58,6 +91,14 @@ class Aluno {
 
     set idade(value: number) {
         this._idade = value;
+    }
+
+    get genero(): string {
+        return this._genero;
+    }
+
+    set genero(value: string) {
+        this._genero = value;
     }
 
     get escola(): string {
@@ -155,4 +196,45 @@ class Aluno {
     set testeDeSalto(value: number) {
         this._testeDeSalto = value;
     }
+
+    public analyse(): profile[]{
+
+        const parameters = require('parameters.json')
+        const values = parameters[this.genero][this.idade]
+
+        let data: profile[] = [{
+            name: this._nome,
+            age: this._idade,
+            gender: this._genero,
+            school: this._escola,
+            height: this._altura,
+            weight: this._peso,
+            spread: this._envergadura,
+            waist: this._perimetroDaCintura,
+            flexibility: this._testeDeFlexibilidade,
+            abdominal: this._testeAbdominal,
+            speed: this._testeDeVelocidade,
+            agility: this._testeDeAgilidade,
+            strength: this._testeMedicineBall,
+            sixMin: this._teste6Minutos,
+            jump: this._testeDeSalto,
+            imc: this.IMC,
+            rce: this.RCE,
+            results: {
+                imc: this.IMC < values.imc,
+                rce: this.RCE < values.rce,
+                flexibility: this.testeDeFlexibilidade > values.flexibility,
+                abdominal: this.testeAbdominal > values.abdominal,
+                speed: this.testeDeVelocidade > parameters.speed,
+                agility: this.testeDeAgilidade > parameters.agility,
+                strength: this.testeMedicineBall > parameters.strength,
+                sixMin: this.teste6Minutos > parameters.sixMin,
+            }
+        }]
+
+        return data
+    }
+
+
+
 }
