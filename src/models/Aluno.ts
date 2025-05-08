@@ -52,7 +52,7 @@ class Aluno {
     private _testeDeSalto: number;
 
     get IMC(): number {
-        return this._peso / (this._altura * this._altura);
+        return this._peso / ((this._altura/100) * (this._altura/100));
     }
 
     get RCE(): number {
@@ -208,7 +208,7 @@ class Aluno {
 
     public analyse(): profile{
         try{
-            const parameters = require('parameters.json')
+            const parameters = require('../config/parameters.json')
             const values = parameters[this.genero][this.idade]
 
             let data: profile = {
@@ -227,15 +227,15 @@ class Aluno {
                 strength: this._testeMedicineBall,
                 sixMin: this._teste6Minutos,
                 jump: this._testeDeSalto,
-                imc: this.IMC,
-                rce: this.RCE,
+                imc: parseFloat(this.IMC.toFixed(2)),
+                rce: parseFloat(this.RCE.toFixed(2)),
                 results: {
                     imc: this.IMC < values.imc,
                     rce: this.RCE < 0.5,
                     flexibility: this.testeDeFlexibilidade > values.flexibility,
                     abdominal: this.testeAbdominal > values.abdominal,
-                    speed: this.testeDeVelocidade > values.speed,
-                    agility: this.testeDeAgilidade > values.agility,
+                    speed: this.testeDeVelocidade < values.speed,
+                    agility: this.testeDeAgilidade < values.agility,
                     strength: this.testeMedicineBall > values.strength,
                     sixMin: this.teste6Minutos > values.sixMin,
                     jump: this.testeDeSalto > values.jump
@@ -244,11 +244,11 @@ class Aluno {
 
             return data
         } catch (e) {
-            throw new Error('Erro na requisição dos dados' + e.message);
+            throw new Error('Erro na requisição dos dados\n' + e.message);
         }
 
     }
-
-
-
 }
+
+let aluno: Aluno = new Aluno("Pedro Files de Barros", 17, "M", "IFSul Câmpus Charqueadas", 180, 73.2, 1.76, 87, 33, 48, 2.68, 4.85, 490, 1110, 220)
+console.log(aluno.analyse())
