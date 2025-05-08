@@ -1,4 +1,4 @@
-declare function require(path:string): any;
+
 
 type Gender = "M" | "F"
 type profile = {
@@ -211,7 +211,7 @@ class Aluno {
             const parameters = require('../config/parameters.json')
             const values = parameters[this.genero][this.idade]
 
-            let data: profile = {
+            return {
                 name: this._nome,
                 age: this._idade,
                 gender: this._genero,
@@ -241,14 +241,11 @@ class Aluno {
                     jump: this.testeDeSalto > values.jump
                 }
             }
-
-            return data
-        } catch (e) {
-            throw new Error('Erro na requisição dos dados\n' + e.message);
+        } catch (error) {
+            throw new Error('Erro na requisição dos dados');
         }
 
     }
 }
 
-let aluno: Aluno = new Aluno("Pedro Files de Barros", 17, "M", "IFSul Câmpus Charqueadas", 180, 73.2, 1.76, 87, 33, 48, 2.68, 4.85, 490, 1110, 220)
-console.log(aluno.analyse())
+export default Aluno;
