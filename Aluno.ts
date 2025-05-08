@@ -1,9 +1,10 @@
 declare function require(path:string): any;
 
+type Gender = "M" | "F"
 type profile = {
     name: string;
     age: number;
-    gender: string;
+    gender: Gender;
     school: string;
     height: number;
     weight: number;
@@ -34,7 +35,7 @@ class Aluno {
 
     private _nome: string;
     private _idade: number;
-    private _genero: string;
+    private _genero: Gender;
     private _escola: string;
     private _altura: number;
     private _peso: number;
@@ -59,9 +60,10 @@ class Aluno {
     }
 
 
-    constructor(nome: string, idade: number, genero: string, escola: string, altura: number, peso: number, envergadura: number, perimetroDaCintura: number, testeDeFlexibilidade: number, testeAbdominal: number, testeDeVelocidade: number, testeDeAgilidade: number, testeMedicineBall: number, teste6Minutos: number, testeDeSalto: number) {
+    constructor(nome: string, idade: number, genero: Gender, escola: string, altura: number, peso: number, envergadura: number, perimetroDaCintura: number, testeDeFlexibilidade: number, testeAbdominal: number, testeDeVelocidade: number, testeDeAgilidade: number, testeMedicineBall: number, teste6Minutos: number, testeDeSalto: number) {
         this._nome = nome;
         this._idade = idade;
+        this._genero = genero;
         this._escola = escola;
         this._altura = altura;
         this._peso = peso;
@@ -93,11 +95,11 @@ class Aluno {
         this._idade = value;
     }
 
-    get genero(): string {
+    get genero(): Gender {
         return this._genero;
     }
 
-    set genero(value: string) {
+    set genero(value: Gender) {
         this._genero = value;
     }
 
@@ -222,13 +224,13 @@ class Aluno {
             rce: this.RCE,
             results: {
                 imc: this.IMC < values.imc,
-                rce: this.RCE < values.rce,
+                rce: null /*this.RCE < values.rce*/, // AJUSTAR
                 flexibility: this.testeDeFlexibilidade > values.flexibility,
                 abdominal: this.testeAbdominal > values.abdominal,
-                speed: this.testeDeVelocidade > parameters.speed,
-                agility: this.testeDeAgilidade > parameters.agility,
-                strength: this.testeMedicineBall > parameters.strength,
-                sixMin: this.teste6Minutos > parameters.sixMin,
+                speed: this.testeDeVelocidade > values.speed,
+                agility: null /*this.testeDeAgilidade > values.agility*/, // AJUSTAR
+                strength: this.testeMedicineBall > values.strength,
+                sixMin: this.teste6Minutos > values.sixMin,
             }
         }]
 
