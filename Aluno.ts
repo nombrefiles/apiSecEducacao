@@ -28,6 +28,7 @@ type profile = {
         agility: boolean;
         strength: boolean;
         sixMin: boolean;
+        jump: boolean;
     }
 };
 
@@ -41,8 +42,7 @@ class Aluno {
     private _peso: number;
     private _envergadura: number;
     private _perimetroDaCintura: number;
-    
-    // TESTES
+
     private _testeDeFlexibilidade: number;
     private _testeAbdominal: number;
     private _testeDeVelocidade: number;
@@ -58,7 +58,6 @@ class Aluno {
     get RCE(): number {
         return (this._perimetroDaCintura / this._altura);
     }
-
 
     constructor(nome: string, idade: number, genero: Gender, escola: string, altura: number, peso: number, envergadura: number, perimetroDaCintura: number, testeDeFlexibilidade: number, testeAbdominal: number, testeDeVelocidade: number, testeDeAgilidade: number, testeMedicineBall: number, teste6Minutos: number, testeDeSalto: number) {
         this._nome = nome;
@@ -76,6 +75,14 @@ class Aluno {
         this._testeMedicineBall = testeMedicineBall;
         this._teste6Minutos = teste6Minutos;
         this._testeDeSalto = testeDeSalto;
+
+        if (idade < 6 || idade > 17){
+            throw new Error("Idade deve estar entre 6 e 17 anos!");
+        }
+
+        if (altura <= 0 || peso <= 0){
+            throw new Error("Peso e altura devem ser positivos e não nulos!");
+        }
     }
 
 
@@ -199,42 +206,47 @@ class Aluno {
         this._testeDeSalto = value;
     }
 
-    public analyse(): profile[]{
+    public analyse(): profile{
+        try{
+            const parameters = require('parameters.json')
+            const values = parameters[this.genero][this.idade]
 
-        const parameters = require('parameters.json')
-        const values = parameters[this.genero][this.idade]
-
-        let data: profile[] = [{
-            name: this._nome,
-            age: this._idade,
-            gender: this._genero,
-            school: this._escola,
-            height: this._altura,
-            weight: this._peso,
-            spread: this._envergadura,
-            waist: this._perimetroDaCintura,
-            flexibility: this._testeDeFlexibilidade,
-            abdominal: this._testeAbdominal,
-            speed: this._testeDeVelocidade,
-            agility: this._testeDeAgilidade,
-            strength: this._testeMedicineBall,
-            sixMin: this._teste6Minutos,
-            jump: this._testeDeSalto,
-            imc: this.IMC,
-            rce: this.RCE,
-            results: {
-                imc: this.IMC < values.imc,
-                rce: null /*this.RCE < values.rce*/, // AJUSTAR
-                flexibility: this.testeDeFlexibilidade > values.flexibility,
-                abdominal: this.testeAbdominal > values.abdominal,
-                speed: this.testeDeVelocidade > values.speed,
-                agility: null /*this.testeDeAgilidade > values.agility*/, // AJUSTAR
-                strength: this.testeMedicineBall > values.strength,
-                sixMin: this.teste6Minutos > values.sixMin,
+            let data: profile = {
+                name: this._nome,
+                age: this._idade,
+                gender: this._genero,
+                school: this._escola,
+                height: this._altura,
+                weight: this._peso,
+                spread: this._envergadura,
+                waist: this._perimetroDaCintura,
+                flexibility: this._testeDeFlexibilidade,
+                abdominal: this._testeAbdominal,
+                speed: this._testeDeVelocidade,
+                agility: this._testeDeAgilidade,
+                strength: this._testeMedicineBall,
+                sixMin: this._teste6Minutos,
+                jump: this._testeDeSalto,
+                imc: this.IMC,
+                rce: this.RCE,
+                results: {
+                    imc: this.IMC < values.imc,
+                    rce: this.RCE < 0.5,
+                    flexibility: this.testeDeFlexibilidade > values.flexibility,
+                    abdominal: this.testeAbdominal > values.abdominal,
+                    speed: this.testeDeVelocidade > values.speed,
+                    agility: this.testeDeAgilidade > values.agility,
+                    strength: this.testeMedicineBall > values.strength,
+                    sixMin: this.teste6Minutos > values.sixMin,
+                    jump: this.testeDeSalto > values.jump
+                }
             }
-        }]
 
-        return data
+            return data
+        } catch (e) {
+            throw new Error('Erro na requisição dos dados' + e.message);
+        }
+
     }
 
 

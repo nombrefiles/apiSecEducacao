@@ -6,7 +6,9 @@
       "flexibility": 29,
       "abdominal": 18,
       "strength": 147.0,
-      "speed": 4.81
+      "speed": 4.81,
+      "jump": 100.1,
+      "agility": 100.1
     },
     "7": {
       "imc": 17.8,
@@ -14,7 +16,9 @@
       "flexibility": 29,
       "abdominal": 18,
       "strength": 168.7,
-      "speed": 4.52
+      "speed": 4.52,
+      "jump": 107.5,
+      "agility": 107.5
     },
     "8": {
       "imc": 19.2,
@@ -22,7 +26,9 @@
       "flexibility": 32.5,
       "abdominal": 24,
       "strength": 190.0,
-      "speed": 4.31
+      "speed": 4.31,
+      "jump": 114.7,
+      "agility": 114.7
     },
     "9": {
       "imc": 19.3,
@@ -30,7 +36,9 @@
       "flexibility": 29,
       "abdominal": 26,
       "strength": 210.0,
-      "speed": 4.25
+      "speed": 4.25,
+      "jump": 122.2,
+      "agility": 122.2
     },
     "10": {
       "imc": 20.7,
@@ -38,7 +46,9 @@
       "flexibility": 29.5,
       "abdominal": 31,
       "strength": 232.0,
-      "speed": 4.09
+      "speed": 4.09,
+      "jump": 129.6,
+      "agility": 129.6
     },
     "11": {
       "imc": 22.1,
@@ -46,7 +56,9 @@
       "flexibility": 29.5,
       "abdominal": 37,
       "strength": 260.0,
-      "speed": 4.00
+      "speed": 4.00,
+      "jump": 136.6,
+      "agility": 136.6
     },
     "12": {
       "imc": 22.2,
@@ -54,7 +66,9 @@
       "flexibility": 29.5,
       "abdominal": 41,
       "strength": 290.0,
-      "speed": 3.88
+      "speed": 3.88,
+      "jump": 143.1,
+      "agility": 143.1
     },
     "13": {
       "imc": 22.0,
@@ -62,7 +76,9 @@
       "flexibility": 26.5,
       "abdominal": 42,
       "strength": 335.0,
-      "speed": 3.72
+      "speed": 3.72,
+      "jump": 152.6,
+      "agility": 152.6
     },
     "14": {
       "imc": 22.2,
@@ -70,7 +86,9 @@
       "flexibility": 30.5,
       "abdominal": 43,
       "strength": 400.0,
-      "speed": 3.54
+      "speed": 3.54,
+      "jump": 164.0,
+      "agility": 164.0
     },
     "15": {
       "imc": 23.0,
@@ -78,7 +96,9 @@
       "flexibility": 31,
       "abdominal": 45,
       "strength": 440.0,
-      "speed": 3.40
+      "speed": 3.40,
+      "jump": 175.3,
+      "agility": 175.3
     },
     "16": {
       "imc": 24.0,
@@ -86,7 +106,9 @@
       "flexibility": 34.5,
       "abdominal": 46,
       "strength": 480.0,
-      "speed": 3.28
+      "speed": 3.28,
+      "jump": 182.6,
+      "agility": 182.6
     },
     "17": {
       "imc": 25.4,
@@ -94,7 +116,9 @@
       "flexibility": 34,
       "abdominal": 47,
       "strength": 500.0,
-      "speed": 3.22
+      "speed": 3.22,
+      "jump": 188.5,
+      "agility": 188.5
     }
   },
   "F": {
@@ -104,7 +128,9 @@
       "flexibility": 40.5,
       "abdominal": 18,
       "strength": 125.0,
-      "speed": 5.22
+      "speed": 5.22,
+      "jump": 88.3,
+      "agility": 88.3
     },
     "7": {
       "imc": 17.1,
@@ -112,7 +138,9 @@
       "flexibility": 40.5,
       "abdominal": 18,
       "strength": 140.0,
-      "speed": 4.88
+      "speed": 4.88,
+      "jump": 96.2,
+      "agility": 96.2
     },
     "8": {
       "imc": 18.2,
@@ -120,7 +148,9 @@
       "flexibility": 39.5,
       "abdominal": 18,
       "strength": 158.1,
-      "speed": 4.66
+      "speed": 4.66,
+      "jump": 103.5,
+      "agility": 103.5
     },
     "9": {
       "imc": 19.1,
@@ -128,7 +158,9 @@
       "flexibility": 35.0,
       "abdominal": 20,
       "strength": 175.0,
-      "speed": 4.58
+      "speed": 4.58,
+      "jump": 110.8,
+      "agility": 110.8
     },
     "10": {
       "imc": 20.9,
@@ -136,7 +168,9 @@
       "flexibility": 36.5,
       "abdominal": 26,
       "strength": 202.0,
-      "speed": 4.44
+      "speed": 4.44,
+      "jump": 117.7,
+      "agility": 117.7
     },
     "11": {
       "imc": 22.3,
@@ -144,7 +178,9 @@
       "flexibility": 34.5,
       "abdominal": 30,
       "strength": 228.0,
-      "speed": 4.36
+      "speed": 4.36,
+      "jump": 123.9,
+      "agility": 123.9
     },
     "12": {
       "imc": 22.6,
@@ -152,7 +188,9 @@
       "flexibility": 39.5,
       "abdominal": 30,
       "strength": 260.0,
-      "speed": 4.28
+      "speed": 4.28,
+      "jump": 128.0,
+      "agility": 128.0
     },
     "13": {
       "imc": 22.0,
@@ -160,7 +198,9 @@
       "flexibility": 38.5,
       "abdominal": 33,
       "strength": 280.0,
-      "speed": 4.17
+      "speed": 4.17,
+      "jump": 130.8,
+      "agility": 130.8
     },
     "14": {
       "imc": 22.0,
@@ -168,7 +208,9 @@
       "flexibility": 38.5,
       "abdominal": 34,
       "strength": 290.0,
-      "speed": 4.16
+      "speed": 4.16,
+      "jump": 132.0,
+      "agility": 132.0
     },
     "15": {
       "imc": 22.4,
@@ -176,7 +218,9 @@
       "flexibility": 38.5,
       "abdominal": 34,
       "strength": 306.0,
-      "speed": 4.07
+      "speed": 4.07,
+      "jump": 131.8,
+      "agility": 131.8
     },
     "16": {
       "imc": 24.0,
@@ -184,7 +228,9 @@
       "flexibility": 39.5,
       "abdominal": 34,
       "strength": 310.0,
-      "speed": 4.01
+      "speed": 4.01,
+      "jump": 131.2,
+      "agility": 131.2
     },
     "17": {
       "imc": 24.0,
@@ -192,7 +238,9 @@
       "flexibility": 39.5,
       "abdominal": 34,
       "strength": 315.0,
-      "speed": 3.91
+      "speed": 3.91,
+      "jump": 130.5,
+      "agility": 130.5
     }
   }
 }
